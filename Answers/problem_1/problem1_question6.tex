@@ -1,0 +1,165 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.85in]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs,array,enumitem,microtype}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.65em}
+
+\newcommand{\ket}[1]{\lvert #1\rangle}
+\newcommand{\bra}[1]{\langle #1\rvert}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\CNOT}[2]{\operatorname{CNOT}_{#1\to #2}}
+
+\begin{document}
+
+\begin{center}
+  {\Large\bfseries Problem 1 -- Question 6}\\[0.3em]
+  {\large Measurement}
+\end{center}
+
+\section*{6(a): Joint measurement of \(Z_1Z_2\) and \(X_1X_2\)}
+
+The two observables commute:
+\[
+ (Z_1Z_2)(X_1X_2)
+ =(Z_1X_1)(Z_2X_2)
+ =(X_1Z_1)(X_2Z_2)
+ =(X_1X_2)(Z_1Z_2).
+\]
+They can therefore be measured jointly without an uncertainty
+conflict.
+
+\paragraph{\(Z_1Z_2\) syndrome.}
+Prepare an ancilla \(a_Z\) in \(\ket0\), apply
+\[
+ \CNOT{q_1}{a_Z},\qquad \CNOT{q_2}{a_Z},
+\]
+and measure \(a_Z\) in the \(Z\) basis. If the measured bit is \(m_Z\),
+the measured eigenvalue is
+\[
+ z=(-1)^{m_Z}.
+\]
+The data state is projected by
+\[
+ \Pi^{(ZZ)}_{z}=\frac{\I+zZ_1Z_2}{2}.
+\]
+
+\paragraph{\(X_1X_2\) syndrome.}
+Prepare a second ancilla \(a_X\) in \(\ket+\) by applying \(H\) to
+\(\ket0\). Apply
+\[
+ \CNOT{a_X}{q_1},\qquad \CNOT{a_X}{q_2},
+\]
+then apply \(H\) to \(a_X\) and measure it in the \(Z\) basis. If the
+result is \(m_X\), the measured eigenvalue is
+\[
+ x=(-1)^{m_X},
+\]
+and the data state is projected by
+\[
+ \Pi^{(XX)}_{x}=\frac{\I+xX_1X_2}{2}.
+\]
+The two syndrome extractions may be done sequentially with one resettable
+ancilla, or with two ancillas.
+
+Conditioned on outcomes \(m_Z=m_X=0\), the normalized output is
+\[
+\boxed{
+\ket{\psi_{++}}
+=\frac{(\I+Z_1Z_2)(\I+X_1X_2)\ket\psi}
+{\left\|(\I+Z_1Z_2)(\I+X_1X_2)\ket\psi\right\|}.
+}
+\]
+This is the joint \(+1\) projection. The success probability is
+\[
+ p_{++}
+ =\bra\psi
+ \frac{(\I+Z_1Z_2)(\I+X_1X_2)}{4}
+ \ket\psi.
+\]
+For two data qubits, the joint \(+1\) eigenspace is one-dimensional and
+is spanned by
+\[
+ \ket{\Phi^+}=\frac{\ket{00}+\ket{11}}{\sqrt2}.
+\]
+
+If deterministic preparation of \(\ket{\Phi^+}\), rather than literal
+postselection, is desired, use classical feedback: apply \(X_1\) when
+\(m_Z=1\), and apply \(Z_1\) when \(m_X=1\). \(X_1\) flips only the
+\(ZZ\) eigenvalue, while \(Z_1\) flips only the \(XX\) eigenvalue.
+
+\section*{6(b): Projective measurement of a general Pauli operator}
+
+Let
+\[
+ P=\eta\,P_1\otimes\cdots\otimes P_n,\qquad
+ \eta\in\{+1,-1\},\qquad
+ P_j\in\{\I,X,Y,Z\}.
+\]
+Ignore identity positions. On every nonidentity position, rotate its
+Pauli operator to \(Z\):
+\[
+ B_j=
+ \begin{cases}
+ H,&P_j=X,\\
+ HS^\dagger,&P_j=Y,\\
+ \I,&P_j=Z.
+ \end{cases}
+\qquad
+B_jP_jB_j^\dagger=Z.
+\]
+Chronologically, \(Y\)-basis conversion applies \(S^\dagger\) and then
+\(H\).
+
+Prepare an ancilla \(a\) in \(\ket0\). After the basis changes, apply a
+CNOT from every nonidentity data qubit to \(a\), then measure \(a\) in
+the \(Z\) basis. The measured bit \(m\) gives eigenvalue
+\[
+ p=\eta(-1)^m.
+\]
+Finally undo the basis changes if the data must remain available.
+The corresponding projectors are
+\[
+\boxed{\Pi_{\pm}=\frac{\I\pm P}{2}.}
+\]
+This is a nondestructive projective measurement: within a fixed
+eigenspace, superpositions are preserved. It uses one ancilla and
+\(\operatorname{wt}(P)\) CNOTs. If destroying the data is acceptable,
+one may instead measure every nonidentity qubit in its local Pauli basis
+and multiply the individual eigenvalues.
+
+\section*{6(c): Reducing the GHZ-like state to one qubit}
+
+Write
+\[
+ \ket{\Psi_n}
+ =\alpha\ket{0}^{\otimes n}
+ +\sqrt{1-\alpha^2}\ket{1}^{\otimes n}.
+\]
+Keep \(q_1\). Measure \(q_2,\ldots,q_n\) in the \(X\) basis by applying
+Hadamards and then measuring in the computational basis. Let the outcomes
+be \(m_2,\ldots,m_n\), and define their parity
+\[
+ p=m_2\oplus\cdots\oplus m_n.
+\]
+Because
+\[
+ \bra{\pm}0\rangle=\frac1{\sqrt2},\qquad
+ \bra{\pm}1\rangle=\frac{\pm1}{\sqrt2},
+\]
+the unmeasured qubit is left in
+\[
+ \alpha\ket0+(-1)^p\sqrt{1-\alpha^2}\ket1.
+\]
+Apply the classically controlled correction \(Z^p\) to \(q_1\). The
+final state is
+\[
+\boxed{
+\alpha\ket0+\sqrt{1-\alpha^2}\ket1.
+}
+\]
+Every outcome string is acceptable; the parity correction removes its
+known phase. Thus the protocol succeeds deterministically and requires
+no ancillary qubits.
+
+\end{document}

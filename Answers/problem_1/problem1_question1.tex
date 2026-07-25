@@ -1,0 +1,70 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{microtype}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.7em}
+
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\bsigma}{\boldsymbol{\sigma}}
+
+\begin{document}
+
+\begin{center}
+  {\Large\bfseries Problem 1 -- Question 1}\\[0.3em]
+  {\large Axis-angle form of a single-qubit rotation}
+\end{center}
+
+Let
+\[
+ A=\mathbf n\cdot\bsigma=n_X X+n_Y Y+n_Z Z,
+ \qquad \|\mathbf n\|=1.
+\]
+The Pauli matrices satisfy
+\[
+ \sigma_j\sigma_k=\delta_{jk}\I+i\sum_{\ell}\epsilon_{jk\ell}\sigma_\ell,
+ \qquad
+ \{\sigma_j,\sigma_k\}=2\delta_{jk}\I .
+\]
+Consequently,
+\begin{align*}
+ A^2
+ &=\sum_{j,k}n_jn_k\sigma_j\sigma_k\\
+ &=\left(\sum_j n_j^2\right)\I
+   +i\sum_{j,k,\ell}n_jn_k\epsilon_{jk\ell}\sigma_\ell\\
+ &=\I.
+\end{align*}
+The second term vanishes because \(n_jn_k\) is symmetric in \(j,k\), whereas
+\(\epsilon_{jk\ell}\) is antisymmetric. It follows that
+\[
+ A^{2m}=\I,\qquad A^{2m+1}=A
+ \quad (m\geq 0).
+\]
+
+Now expand the exponential and separate its even and odd powers:
+\begin{align*}
+ R_{\mathbf n}(\theta)
+ &=\exp\left(-i\frac{\theta}{2}A\right)\\
+ &=\sum_{m=0}^{\infty}
+   \frac{(-i\theta/2)^{2m}}{(2m)!}A^{2m}
+  +\sum_{m=0}^{\infty}
+   \frac{(-i\theta/2)^{2m+1}}{(2m+1)!}A^{2m+1}\\
+ &=\left[\sum_{m=0}^{\infty}
+   \frac{(-1)^m(\theta/2)^{2m}}{(2m)!}\right]\I
+  -i\left[\sum_{m=0}^{\infty}
+   \frac{(-1)^m(\theta/2)^{2m+1}}{(2m+1)!}\right]A\\
+ &=\cos\left(\frac{\theta}{2}\right)\I
+  -i\sin\left(\frac{\theta}{2}\right)A.
+\end{align*}
+Substituting the definition of \(A\) gives the required expression:
+\[
+\boxed{
+R_{\mathbf n}(\theta)
+=
+\cos\left(\frac{\theta}{2}\right)\I
+-i\sin\left(\frac{\theta}{2}\right)
+\left(n_XX+n_YY+n_ZZ\right).
+}
+\]
+
+\end{document}

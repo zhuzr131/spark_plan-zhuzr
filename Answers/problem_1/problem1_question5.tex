@@ -1,0 +1,204 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs,array,enumitem,microtype}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.62em}
+
+\newcommand{\ket}[1]{\lvert #1\rangle}
+\newcommand{\bra}[1]{\langle #1\rvert}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\CNOT}[2]{\operatorname{CNOT}_{#1\to #2}}
+\newcommand{\CZ}{\operatorname{CZ}}
+
+\begin{document}
+
+\begin{center}
+  {\Large\bfseries Problem 1 -- Question 5}\\[0.3em]
+  {\large Gate construction}
+\end{center}
+
+\section*{5(a): SWAP from CNOT gates}
+
+Use the chronological sequence
+\[
+ \boxed{\CNOT{1}{2}\;,\quad\CNOT{2}{1}\;,\quad\CNOT{1}{2}.}
+\]
+On a computational basis state \(\ket{x,y}\), the bit values evolve as
+\[
+ (x,y)\mapsto(x,x\oplus y)
+ \mapsto(y,x\oplus y)\mapsto(y,x).
+\]
+Linearity gives the same result for arbitrary states
+\(\ket\psi\ket\phi\). Three CNOTs are necessary and sufficient if CNOT
+is the only available two-qubit gate.
+
+\section*{5(b): Two distance-two CNOTs on a four-qubit line}
+
+Assume the desired directions are \(q_0\to q_2\) and \(q_1\to q_3\).
+The following nearest-neighbor schedule uses six CNOTs:
+\[
+\begin{array}{c|l}
+\text{layer}&\text{gates}\\ \hline
+1&\CNOT{0}{1}\\
+2&\CNOT{1}{2}\\
+3&\CNOT{0}{1}\quad\text{and}\quad\CNOT{2}{3}\\
+4&\CNOT{1}{2}\\
+5&\CNOT{2}{3}.
+\end{array}
+\]
+The two gates in layer \(3\) act on disjoint pairs and run in parallel.
+Tracking the four classical basis bits gives
+\[
+ (x_0,x_1,x_2,x_3)
+ \longmapsto
+ (x_0,x_1,x_2\oplus x_0,x_3\oplus x_1),
+\]
+so the induced unitary is exactly the product of the two requested
+CNOTs. The count is \(6\) and the depth is \(5\). A SWAP-routing
+construction would use \(8\) CNOTs, so preserving the temporary parity
+information saves two gates.
+
+\section*{5(c): \(R_{ZZ}\) from CNOT and \(R_Z\)}
+
+Because
+\[
+ \CNOT{1}{2}\,(\I\otimes Z)\,\CNOT{1}{2}=Z\otimes Z,
+\]
+conjugating an \(R_Z\) rotation gives
+\[
+\boxed{
+ R_{ZZ}(\theta)
+ =\CNOT{1}{2}
+   \bigl(\I\otimes R_Z(\theta)\bigr)
+   \CNOT{1}{2}.
+}
+\]
+Chronologically: CNOT \(1\to2\), \(R_Z(\theta)\) on qubit \(2\), then
+the same CNOT again. The circuit uses two CNOTs and one \(R_Z\).
+
+\section*{5(d): Controlled phase from \(R_{ZZ}\)}
+
+The projector onto \(\ket{11}\) is
+\[
+ \ket{11}\!\bra{11}
+ =\frac14(\I-Z_1)(\I-Z_2)
+ =\frac14(\I-Z_1-Z_2+Z_1Z_2).
+\]
+Since all four terms commute,
+\begin{align*}
+\operatorname{CP}(\theta)
+ &=\exp\bigl(i\theta\ket{11}\!\bra{11}\bigr)\\
+ &=e^{i\theta/4}
+   R_{Z,1}\left(\frac{\theta}{2}\right)
+   R_{Z,2}\left(\frac{\theta}{2}\right)
+   R_{ZZ}\left(-\frac{\theta}{2}\right).
+\end{align*}
+Hence, up to the physically irrelevant global phase \(e^{i\theta/4}\),
+\[
+\boxed{
+\operatorname{CP}(\theta)
+\equiv
+R_{Z,1}\left(\frac{\theta}{2}\right)
+R_{Z,2}\left(\frac{\theta}{2}\right)
+R_{ZZ}\left(-\frac{\theta}{2}\right).
+}
+\]
+The resulting diagonal entries are \(1,1,1,e^{i\theta}\), after the
+global phase is restored.
+
+\section*{5(e): Exponential of an arbitrary Pauli string}
+
+Let
+\[
+ P=P_1\otimes\cdots\otimes P_n,\qquad
+ P_j\in\{\I,X,Y,Z\},
+\]
+and let \(S=\{j:P_j\neq\I\}\) have size \(w\). For each \(j\in S\),
+apply a basis change \(B_j\) satisfying \(B_jP_jB_j^\dagger=Z\):
+\[
+ B_j=
+ \begin{cases}
+ H,&P_j=X,\\
+ HS^\dagger,&P_j=Y,\\
+ \I,&P_j=Z.
+ \end{cases}
+\]
+For \(Y\), the chronological order is \(S^\dagger\) and then \(H\).
+After these changes, \(P\) has become a product of \(Z\)'s.
+
+Choose one qubit \(t\in S\) as a parity target. Apply CNOTs from every
+other \(j\in S\setminus\{t\}\) to \(t\), apply \(R_Z(2\theta)\) to
+\(t\), undo the CNOTs in reverse order, and finally undo all \(B_j\).
+The middle rotation is
+\[
+ R_Z(2\theta)=e^{-i\theta Z_t},
+\]
+and parity conjugation replaces \(Z_t\) by \(\prod_{j\in S}Z_j\).
+Thus the complete circuit implements
+\[
+ \boxed{e^{-i\theta P}.}
+\]
+It uses \(2(w-1)\) CNOTs, one \(R_Z\), and at most \(2w\) one-qubit
+basis-change gates. A balanced parity tree reduces the CNOT depth from
+\(2(w-1)\) to \(2\lceil\log_2w\rceil\) when connectivity permits.
+
+\section*{5(f): The specified two-qubit matrix}
+
+Use computational-basis order
+\(\ket{00},\ket{01},\ket{10},\ket{11}\), and define
+\[
+R_Y(\vartheta)=
+\begin{pmatrix}
+\cos(\vartheta/2)&-\sin(\vartheta/2)\\
+\sin(\vartheta/2)&\cos(\vartheta/2)
+\end{pmatrix}.
+\]
+The requested real matrix \(U\) has the exact factorization
+\[
+\boxed{
+\begin{aligned}
+U={}&
+\CZ\,
+\left[\I\otimes R_Y\left(-\frac{13\pi}{12}\right)\right]\,
+\CZ\\
+&\times
+\left[R_Y\left(\frac{3\pi}{4}\right)
+\otimes R_Y\left(-\frac{5\pi}{12}\right)\right]\,
+\CZ\,
+\left[R_Y\left(\frac{3\pi}{4}\right)\otimes\I\right].
+\end{aligned}}
+\]
+Thus the chronological pulse schedule is
+\[
+\begin{array}{c|l}
+1&R_Y(3\pi/4)\text{ on }q_0\\
+2&\CZ\\
+3&R_Y(3\pi/4)\text{ on }q_0
+   \quad\text{and}\quad R_Y(-5\pi/12)\text{ on }q_1\\
+4&\CZ\\
+5&R_Y(-13\pi/12)\text{ on }q_1\\
+6&\CZ .
+\end{array}
+\]
+Direct multiplication yields
+\[
+\begin{pmatrix}
+\frac12&\frac1{\sqrt2}&\frac12&0\\
+\frac12&-\frac1{\sqrt2}&\frac12&0\\
+\frac1{2\sqrt2}&0&-\frac1{2\sqrt2}&\frac{\sqrt3}{2}\\
+\frac{\sqrt3}{2\sqrt2}&0&-\frac{\sqrt3}{2\sqrt2}&-\frac12
+\end{pmatrix}.
+\]
+The two simultaneous rotations in layer \(3\) give a total circuit
+depth of \(6\), with three CZ gates and four \(R_Y\) pulses.
+
+\paragraph{Determinant note.}
+As printed, the matrix is real orthogonal with determinant \(-1\), not
+\(+1\). Therefore it is not literally in \(SU(4)\). Multiplying it by
+the global phase \(e^{i\pi/4}\) gives determinant \(1\), because
+\(\det(e^{i\pi/4}U)=e^{i\pi}\det U=1\). This global phase has no
+observable effect, so the displayed circuit implements the intended
+two-qubit operation.
+
+\end{document}

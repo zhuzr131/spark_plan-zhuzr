@@ -1,0 +1,91 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{microtype}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.7em}
+
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\bsigma}{\boldsymbol{\sigma}}
+
+\begin{document}
+
+\begin{center}
+  {\Large\bfseries Problem 1 -- Question 2}\\[0.3em]
+  {\large Axis-angle representation of an arbitrary \(U(2)\) matrix}
+\end{center}
+
+Let \(U\in U(2)\). Since \(\det U\) has unit modulus, choose
+\[
+ \alpha=\frac{1}{2}\arg(\det U)
+\]
+and define
+\[
+ V=e^{-i\alpha}U.
+\]
+With a consistent choice of the square root of \(\det U\), one has
+\(\det V=1\), so \(V\in SU(2)\). Every \(SU(2)\) matrix has the form
+\[
+ V=
+ \begin{pmatrix}
+ a&b\\
+ -b^*&a^*
+ \end{pmatrix},
+ \qquad |a|^2+|b|^2=1.
+\]
+Write
+\[
+ a=a_R+ia_I,\qquad b=b_R+ib_I.
+\]
+Then
+\[
+ V
+ =a_R\I+i\left(b_I X+b_RY+a_I Z\right).
+\]
+The coefficient vector is real, and the normalization condition becomes
+\[
+ a_R^2+a_I^2+b_R^2+b_I^2=1.
+\]
+
+Choose \(\theta\) so that
+\[
+ \cos\left(\frac{\theta}{2}\right)=a_R,
+ \qquad
+ s=\sin\left(\frac{\theta}{2}\right)
+ =\sqrt{a_I^2+b_R^2+b_I^2}.
+\]
+If \(s\neq0\), define the real unit vector
+\[
+ \mathbf n
+ =-\frac{1}{s}\left(b_I,b_R,a_I\right).
+\]
+Using the result of Question 1,
+\[
+ V
+ =\cos\left(\frac{\theta}{2}\right)\I
+  -i\sin\left(\frac{\theta}{2}\right)\mathbf n\cdot\bsigma
+ =R_{\mathbf n}(\theta).
+\]
+Therefore
+\[
+ \boxed{U=e^{i\alpha}R_{\mathbf n}(\theta).}
+\]
+
+When \(s=0\), \(V=\I\) or \(V=-\I\). These cases may be represented by
+\(\theta=0\) or \(\theta=2\pi\), respectively, with an arbitrary unit axis
+\(\mathbf n\). The parameters are not unique: changing the branch of
+\(\alpha\), replacing \((\mathbf n,\theta)\) by
+\((-\mathbf n,-\theta)\), and using the \(4\pi\)-periodicity of spin
+rotations give equivalent representations.
+
+\paragraph{Coordinate-free parameter extraction.}
+For \(s\neq0\), the same result can be written as
+\[
+ \cos\left(\frac{\theta}{2}\right)=\frac{1}{2}\operatorname{Tr}V,
+ \qquad
+ n_j=\frac{i}{2s}\operatorname{Tr}(\sigma_jV),
+ \quad j\in\{X,Y,Z\}.
+\]
+For \(V\in SU(2)\), these quantities are real.
+
+\end{document}

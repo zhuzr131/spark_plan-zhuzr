@@ -1,0 +1,187 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.85in]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs,array,enumitem,microtype}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.65em}
+
+\newcommand{\ket}[1]{\lvert #1\rangle}
+\newcommand{\CNOT}[2]{\operatorname{CNOT}_{#1\to #2}}
+
+\begin{document}
+
+\begin{center}
+  {\Large\bfseries Problem 1 -- Question 4}\\[0.3em]
+  {\large State preparation}
+\end{center}
+
+\section*{4(a): Uniform superposition}
+
+Apply a Hadamard gate to every qubit:
+\[
+ \ket{0}^{\otimes n}
+ \xrightarrow{\,H^{\otimes n}\,}
+ \left(\frac{\ket0+\ket1}{\sqrt2}\right)^{\otimes n}
+ =\frac{1}{\sqrt{2^n}}\sum_{x\in\{0,1\}^n}\ket{x}.
+\]
+The circuit has size \(n\), depth \(1\), and uses no ancillary qubits.
+Both the size and depth are optimal: every output qubit must be changed
+from the fixed state \(\ket0\), and all \(n\) one-qubit gates can run in
+parallel.
+
+\section*{4(b): Unequal-amplitude GHZ state}
+
+Assume \(|\alpha|\leq1\), and choose
+\[
+ \gamma=2\operatorname{atan2}\left(\sqrt{1-\alpha^2},\alpha\right).
+\]
+Then
+\[
+ R_Y(\gamma)\ket0
+ =\alpha\ket0+\sqrt{1-\alpha^2}\ket1.
+\]
+Apply \(R_Y(\gamma)\) to \(q_1\), followed by a fanout of CNOTs whose
+control information originates at \(q_1\):
+\[
+\left(\alpha\ket0+\sqrt{1-\alpha^2}\ket1\right)\ket{0}^{\otimes(n-1)}
+\longmapsto
+\alpha\ket{0^n}+\sqrt{1-\alpha^2}\ket{1^n}.
+\]
+With unrestricted connectivity, use a balanced doubling tree: in layer
+\(r\), every already-entangled qubit controls a fresh qubit. This requires
+\(n-1\) CNOTs and depth \(\lceil\log_2 n\rceil\), after the initial
+one-qubit rotation. Hence
+\[
+ \text{size}=n,\qquad
+ \text{depth}=1+\lceil\log_2 n\rceil,\qquad
+ \text{ancillas}=0.
+\]
+On a nearest-neighbor line, the simple CNOT chain has the same size and
+depth \(n\).
+
+\section*{4(c): Four-qubit one-excitation state}
+
+Use qubit order \(q_1q_2q_3q_4\). Define an excitation-preserving Givens
+rotation by
+\[
+\begin{aligned}
+G_{jk}(\varphi)\ket{01}_{jk}
+ &=\sin\varphi\,\ket{10}_{jk}
+  +\cos\varphi\,\ket{01}_{jk},\\
+G_{jk}(\varphi)\ket{10}_{jk}
+ &=\cos\varphi\,\ket{10}_{jk}
+  -\sin\varphi\,\ket{01}_{jk},
+\end{aligned}
+\]
+and let it act as the identity on \(\ket{00}\) and \(\ket{11}\).
+Starting from \(\ket{0000}\), use the chronological sequence
+\[
+ X_{q_4},\quad
+ G_{34}(\varphi_{34}),\quad
+ G_{23}(\varphi_{23}),\quad
+ G_{12}(\varphi_{12}),
+\]
+where
+\[
+ \cos\varphi_{34}=\frac{3}{10},\qquad
+ \cos\varphi_{23}=\frac{4}{\sqrt{91}},\qquad
+ \varphi_{12}=\frac{\pi}{4}.
+\]
+The amplitudes evolve as
+\begin{align*}
+\ket{0001}
+&\longmapsto
+\frac{\sqrt{91}}{10}\ket{0010}
++\frac{3}{10}\ket{0001}\\
+&\longmapsto
+\frac{\sqrt3}{2}\ket{0100}
++\frac25\ket{0010}
++\frac{3}{10}\ket{0001}\\
+&\longmapsto
+\frac{\sqrt6}{4}\ket{1000}
++\frac{\sqrt6}{4}\ket{0100}
++\frac25\ket{0010}
++\frac{3}{10}\ket{0001}.
+\end{align*}
+This is the requested state. It uses one \(X\) gate and three two-qubit
+Givens rotations, no ancillas, and depth \(4\). A Givens rotation can be
+compiled into two CNOTs and single-qubit \(R_Y\) pulses if CNOT is the
+native entangling gate.
+
+\section*{4(d): Optional part retained as requested}
+
+Let the eight strings multiplying \(\alpha\) be the affine code
+\[
+ \mathcal A
+ =a_0+\operatorname{span}_{\mathbb F_2}\{g_1,g_2,g_3\},
+\]
+where
+\[
+\begin{aligned}
+a_0&=1000000,\\
+g_1&=1010101,\qquad
+g_2=0110011,\qquad
+g_3=0001111.
+\end{aligned}
+\]
+The eight strings multiplying \(\beta\) are exactly the bitwise
+complements of the strings in \(\mathcal A\). Thus they form
+\(\mathcal A+1111111\). The state is normalized when
+\[
+ 8(\alpha^2+\beta^2)=1.
+\]
+
+Choose \(\delta\) such that
+\[
+ \cos\frac{\delta}{2}=\sqrt8\,\alpha,\qquad
+ \sin\frac{\delta}{2}=\sqrt8\,\beta.
+\]
+Initialize seven qubits and prepare four logical bits
+\[
+ u,v,w\ \text{uniform in }\{0,1\},
+ \qquad
+ s\ \text{with amplitudes }\sqrt8\alpha,\sqrt8\beta,
+\]
+by applying
+\[
+ H_{q_1},\quad H_{q_2},\quad R_Y(\delta)_{q_3},\quad H_{q_4}.
+\]
+Initially \(q_1=u,q_2=v,q_3=s,q_4=w\), while \(q_5=q_6=q_7=0\).
+
+Apply the following compact linear encoder in chronological order:
+\[
+\begin{aligned}
+&\CNOT{1}{2},\
+\CNOT{1}{5},\
+\CNOT{1}{6},\
+\CNOT{2}{7},\
+\CNOT{3}{1},\
+\CNOT{1}{2},\\
+&\CNOT{3}{4},\
+\CNOT{7}{3},\
+\CNOT{4}{7},\
+\CNOT{7}{6},\
+\CNOT{4}{5}.
+\end{aligned}
+\]
+Tracking the logical bits over \(\mathbb F_2\), the seven registers become
+\[
+\begin{aligned}
+q_1&=u+s,&q_2&=v+s,&q_3&=u+v+s,\\
+q_4&=w+s,&q_5&=u+w+s,&q_6&=v+w+s,\\
+q_7&=u+v+w+s.&&&
+\end{aligned}
+\]
+Finally apply \(X_{q_1}\). The output bit string is therefore
+\[
+ a_0+ug_1+vg_2+wg_3+s(1111111).
+\]
+Since \(H^{\otimes3}\) supplies the factor \(1/\sqrt8\), every word with
+\(s=0\) has amplitude \(\alpha\), and every word with \(s=1\) has
+amplitude \(\beta\), exactly as required.
+
+This explicit encoder uses no extra ancillas. Counting the displayed
+primitive gates gives \(3\) Hadamards, \(1\) \(R_Y\), \(11\) CNOTs, and
+\(1\) \(X\), for total size \(16\). Disjoint CNOTs may be parallelized.
+
+\end{document}
