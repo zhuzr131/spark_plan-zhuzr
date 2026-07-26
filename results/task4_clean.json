@@ -1,0 +1,608 @@
+[
+  {
+    "graph": "C4",
+    "init_strategy": "zero",
+    "n_layers": 1,
+    "final_energy": 2.0,
+    "exact_maxcut": 4,
+    "approximation_ratio": 0.5,
+    "n_iterations": 1,
+    "history": [
+      2.0
+    ],
+    "seed": 0
+  },
+  {
+    "graph": "C4",
+    "init_strategy": "zero",
+    "n_layers": 1,
+    "final_energy": 2.0,
+    "exact_maxcut": 4,
+    "approximation_ratio": 0.5,
+    "n_iterations": 1,
+    "history": [
+      2.0
+    ],
+    "seed": 1
+  },
+  {
+    "graph": "C4",
+    "init_strategy": "zero",
+    "n_layers": 1,
+    "final_energy": 2.0,
+    "exact_maxcut": 4,
+    "approximation_ratio": 0.5,
+    "n_iterations": 1,
+    "history": [
+      2.0
+    ],
+    "seed": 2
+  },
+  {
+    "graph": "C4",
+    "init_strategy": "random",
+    "n_layers": 1,
+    "final_energy": 1.0,
+    "exact_maxcut": 4,
+    "approximation_ratio": 0.25,
+    "n_iterations": 8,
+    "history": [
+      2.1309962272644043,
+      1.4161956310272217,
+      1.2567343711853027,
+      1.0100555419921875,
+      1.000632882118225,
+      1.000001072883606,
+      1.0000005960464478,
+      1.0
+    ],
+    "seed": 0
+  },
+  {
+    "graph": "C4",
+    "init_strategy": "random",
+    "n_layers": 1,
+    "final_energy": 1.000000238418579,
+    "exact_maxcut": 4,
+    "approximation_ratio": 0.2500000596046448,
+    "n_iterations": 4,
+    "history": [
+      1.0021075010299683,
+      1.0000240802764893,
+      1.000000238418579,
+      1.000000238418579
+    ],
+    "seed": 1
+  },
+  {
+    "graph": "C4",
+    "init_strategy": "random",
+    "n_layers": 1,
+    "final_energy": 1.0000001192092896,
+    "exact_maxcut": 4,
+    "approximation_ratio": 0.2500000298023224,
+    "n_iterations": 7,
+    "history": [
+      2.107278347015381,
+      1.0290539264678955,
+      1.0112310647964478,
+      1.000004768371582,
+      1.000000238418579,
+      1.0000001192092896,
+      1.0000001192092896
+    ],
+    "seed": 2
+  },
+  {
+    "graph": "C4",
+    "init_strategy": "linear_ramp",
+    "n_layers": 1,
+    "final_energy": 1.0000001192092896,
+    "exact_maxcut": 4,
+    "approximation_ratio": 0.2500000298023224,
+    "n_iterations": 4,
+    "history": [
+      1.0226202011108398,
+      1.000000238418579,
+      1.0000001192092896,
+      1.0000001192092896
+    ],
+    "seed": 0
+  },
+  {
+    "graph": "C4",
+    "init_strategy": "linear_ramp",
+    "n_layers": 1,
+    "final_energy": 1.0000001192092896,
+    "exact_maxcut": 4,
+    "approximation_ratio": 0.2500000298023224,
+    "n_iterations": 4,
+    "history": [
+      1.0226202011108398,
+      1.000000238418579,
+      1.0000001192092896,
+      1.0000001192092896
+    ],
+    "seed": 1
+  },
+  {
+    "graph": "C4",
+    "init_strategy": "linear_ramp",
+    "n_layers": 1,
+    "final_energy": 1.0000001192092896,
+    "exact_maxcut": 4,
+    "approximation_ratio": 0.2500000298023224,
+    "n_iterations": 4,
+    "history": [
+      1.0226202011108398,
+      1.000000238418579,
+      1.0000001192092896,
+      1.0000001192092896
+    ],
+    "seed": 2
+  },
+  {
+    "graph": "C4",
+    "init_strategy": "trotter",
+    "n_layers": 1,
+    "final_energy": 0.9999998807907104,
+    "exact_maxcut": 4,
+    "approximation_ratio": 0.2499999701976776,
+    "n_iterations": 6,
+    "history": [
+      1.0292332172393799,
+      1.0114750862121582,
+      1.0000009536743164,
+      1.0000004768371582,
+      0.9999998807907104,
+      0.9999998807907104
+    ],
+    "seed": 0
+  },
+  {
+    "graph": "C4",
+    "init_strategy": "trotter",
+    "n_layers": 1,
+    "final_energy": 0.9999998807907104,
+    "exact_maxcut": 4,
+    "approximation_ratio": 0.2499999701976776,
+    "n_iterations": 6,
+    "history": [
+      1.0292332172393799,
+      1.0114750862121582,
+      1.0000009536743164,
+      1.0000004768371582,
+      0.9999998807907104,
+      0.9999998807907104
+    ],
+    "seed": 1
+  },
+  {
+    "graph": "C4",
+    "init_strategy": "trotter",
+    "n_layers": 1,
+    "final_energy": 0.9999998807907104,
+    "exact_maxcut": 4,
+    "approximation_ratio": 0.2499999701976776,
+    "n_iterations": 6,
+    "history": [
+      1.0292332172393799,
+      1.0114750862121582,
+      1.0000009536743164,
+      1.0000004768371582,
+      0.9999998807907104,
+      0.9999998807907104
+    ],
+    "seed": 2
+  },
+  {
+    "graph": "G6",
+    "init_strategy": "zero",
+    "n_layers": 1,
+    "final_energy": 3.5,
+    "exact_maxcut": 7,
+    "approximation_ratio": 0.5,
+    "n_iterations": 1,
+    "history": [
+      3.5
+    ],
+    "seed": 0
+  },
+  {
+    "graph": "G6",
+    "init_strategy": "zero",
+    "n_layers": 1,
+    "final_energy": 3.5,
+    "exact_maxcut": 7,
+    "approximation_ratio": 0.5,
+    "n_iterations": 1,
+    "history": [
+      3.5
+    ],
+    "seed": 1
+  },
+  {
+    "graph": "G6",
+    "init_strategy": "zero",
+    "n_layers": 1,
+    "final_energy": 3.5,
+    "exact_maxcut": 7,
+    "approximation_ratio": 0.5,
+    "n_iterations": 1,
+    "history": [
+      3.5
+    ],
+    "seed": 2
+  },
+  {
+    "graph": "G6",
+    "init_strategy": "random",
+    "n_layers": 1,
+    "final_energy": 1.9980260133743286,
+    "exact_maxcut": 7,
+    "approximation_ratio": 0.2854322876249041,
+    "n_iterations": 9,
+    "history": [
+      2.273458480834961,
+      2.204357147216797,
+      2.0245814323425293,
+      1.9983494281768799,
+      1.998030185699463,
+      1.9980273246765137,
+      1.9980261325836182,
+      1.9980260133743286,
+      1.9980260133743286
+    ],
+    "seed": 0
+  },
+  {
+    "graph": "G6",
+    "init_strategy": "random",
+    "n_layers": 1,
+    "final_energy": 1.9980264902114868,
+    "exact_maxcut": 7,
+    "approximation_ratio": 0.2854323557444981,
+    "n_iterations": 7,
+    "history": [
+      3.482585906982422,
+      3.341794013977051,
+      2.00108003616333,
+      1.9987926483154297,
+      1.9980268478393555,
+      1.9980264902114868,
+      1.9980264902114868
+    ],
+    "seed": 1
+  },
+  {
+    "graph": "G6",
+    "init_strategy": "random",
+    "n_layers": 1,
+    "final_energy": 2.958662986755371,
+    "exact_maxcut": 7,
+    "approximation_ratio": 0.422666140965053,
+    "n_iterations": 4,
+    "history": [
+      3.0121212005615234,
+      2.9597744941711426,
+      2.9586689472198486,
+      2.958662986755371
+    ],
+    "seed": 2
+  },
+  {
+    "graph": "G6",
+    "init_strategy": "linear_ramp",
+    "n_layers": 1,
+    "final_energy": 1.9980268478393555,
+    "exact_maxcut": 7,
+    "approximation_ratio": 0.28543240683419363,
+    "n_iterations": 4,
+    "history": [
+      1.9980803728103638,
+      1.9980275630950928,
+      1.9980274438858032,
+      1.9980268478393555
+    ],
+    "seed": 0
+  },
+  {
+    "graph": "G6",
+    "init_strategy": "linear_ramp",
+    "n_layers": 1,
+    "final_energy": 1.9980268478393555,
+    "exact_maxcut": 7,
+    "approximation_ratio": 0.28543240683419363,
+    "n_iterations": 4,
+    "history": [
+      1.9980803728103638,
+      1.9980275630950928,
+      1.9980274438858032,
+      1.9980268478393555
+    ],
+    "seed": 1
+  },
+  {
+    "graph": "G6",
+    "init_strategy": "linear_ramp",
+    "n_layers": 1,
+    "final_energy": 1.9980268478393555,
+    "exact_maxcut": 7,
+    "approximation_ratio": 0.28543240683419363,
+    "n_iterations": 4,
+    "history": [
+      1.9980803728103638,
+      1.9980275630950928,
+      1.9980274438858032,
+      1.9980268478393555
+    ],
+    "seed": 2
+  },
+  {
+    "graph": "G6",
+    "init_strategy": "trotter",
+    "n_layers": 1,
+    "final_energy": 1.9980270862579346,
+    "exact_maxcut": 7,
+    "approximation_ratio": 0.28543244089399067,
+    "n_iterations": 10,
+    "history": [
+      3.5885701179504395,
+      3.504443883895874,
+      3.324371337890625,
+      3.273627519607544,
+      3.0945587158203125,
+      2.443324565887451,
+      2.1685945987701416,
+      1.9983081817626953,
+      1.9980270862579346,
+      1.9980270862579346
+    ],
+    "seed": 0
+  },
+  {
+    "graph": "G6",
+    "init_strategy": "trotter",
+    "n_layers": 1,
+    "final_energy": 1.9980270862579346,
+    "exact_maxcut": 7,
+    "approximation_ratio": 0.28543244089399067,
+    "n_iterations": 10,
+    "history": [
+      3.5885701179504395,
+      3.504443883895874,
+      3.324371337890625,
+      3.273627519607544,
+      3.0945587158203125,
+      2.443324565887451,
+      2.1685945987701416,
+      1.9983081817626953,
+      1.9980270862579346,
+      1.9980270862579346
+    ],
+    "seed": 1
+  },
+  {
+    "graph": "G6",
+    "init_strategy": "trotter",
+    "n_layers": 1,
+    "final_energy": 1.9980270862579346,
+    "exact_maxcut": 7,
+    "approximation_ratio": 0.28543244089399067,
+    "n_iterations": 10,
+    "history": [
+      3.5885701179504395,
+      3.504443883895874,
+      3.324371337890625,
+      3.273627519607544,
+      3.0945587158203125,
+      2.443324565887451,
+      2.1685945987701416,
+      1.9983081817626953,
+      1.9980270862579346,
+      1.9980270862579346
+    ],
+    "seed": 2
+  },
+  {
+    "graph": "G9",
+    "init_strategy": "zero",
+    "n_layers": 1,
+    "final_energy": 6.0,
+    "exact_maxcut": 11,
+    "approximation_ratio": 0.5454545454545454,
+    "n_iterations": 1,
+    "history": [
+      6.0
+    ],
+    "seed": 0
+  },
+  {
+    "graph": "G9",
+    "init_strategy": "zero",
+    "n_layers": 1,
+    "final_energy": 6.0,
+    "exact_maxcut": 11,
+    "approximation_ratio": 0.5454545454545454,
+    "n_iterations": 1,
+    "history": [
+      6.0
+    ],
+    "seed": 1
+  },
+  {
+    "graph": "G9",
+    "init_strategy": "zero",
+    "n_layers": 1,
+    "final_energy": 6.0,
+    "exact_maxcut": 11,
+    "approximation_ratio": 0.5454545454545454,
+    "n_iterations": 1,
+    "history": [
+      6.0
+    ],
+    "seed": 2
+  },
+  {
+    "graph": "G9",
+    "init_strategy": "random",
+    "n_layers": 1,
+    "final_energy": 3.5940003395080566,
+    "exact_maxcut": 11,
+    "approximation_ratio": 0.32672730359164154,
+    "n_iterations": 7,
+    "history": [
+      4.116255283355713,
+      3.8156890869140625,
+      3.7682294845581055,
+      3.59401798248291,
+      3.5940020084381104,
+      3.5940003395080566,
+      3.5940003395080566
+    ],
+    "seed": 0
+  },
+  {
+    "graph": "G9",
+    "init_strategy": "random",
+    "n_layers": 1,
+    "final_energy": 3.5939974784851074,
+    "exact_maxcut": 11,
+    "approximation_ratio": 0.3267270434986461,
+    "n_iterations": 11,
+    "history": [
+      6.5229878425598145,
+      5.5539751052856445,
+      5.101255416870117,
+      4.463807582855225,
+      4.378547191619873,
+      3.7343623638153076,
+      3.628802537918091,
+      3.594447612762451,
+      3.594027280807495,
+      3.5939974784851074,
+      3.5939974784851074
+    ],
+    "seed": 1
+  },
+  {
+    "graph": "G9",
+    "init_strategy": "random",
+    "n_layers": 1,
+    "final_energy": 4.07057523727417,
+    "exact_maxcut": 11,
+    "approximation_ratio": 0.3700522942976518,
+    "n_iterations": 6,
+    "history": [
+      4.299795627593994,
+      4.075945854187012,
+      4.0706024169921875,
+      4.070577144622803,
+      4.07057523727417,
+      4.07057523727417
+    ],
+    "seed": 2
+  },
+  {
+    "graph": "G9",
+    "init_strategy": "linear_ramp",
+    "n_layers": 1,
+    "final_energy": 3.5939981937408447,
+    "exact_maxcut": 11,
+    "approximation_ratio": 0.32672710852189496,
+    "n_iterations": 3,
+    "history": [
+      3.59505558013916,
+      3.5939981937408447,
+      3.5939981937408447
+    ],
+    "seed": 0
+  },
+  {
+    "graph": "G9",
+    "init_strategy": "linear_ramp",
+    "n_layers": 1,
+    "final_energy": 3.5939981937408447,
+    "exact_maxcut": 11,
+    "approximation_ratio": 0.32672710852189496,
+    "n_iterations": 3,
+    "history": [
+      3.59505558013916,
+      3.5939981937408447,
+      3.5939981937408447
+    ],
+    "seed": 1
+  },
+  {
+    "graph": "G9",
+    "init_strategy": "linear_ramp",
+    "n_layers": 1,
+    "final_energy": 3.5939981937408447,
+    "exact_maxcut": 11,
+    "approximation_ratio": 0.32672710852189496,
+    "n_iterations": 3,
+    "history": [
+      3.59505558013916,
+      3.5939981937408447,
+      3.5939981937408447
+    ],
+    "seed": 2
+  },
+  {
+    "graph": "G9",
+    "init_strategy": "trotter",
+    "n_layers": 1,
+    "final_energy": 3.5940003395080566,
+    "exact_maxcut": 11,
+    "approximation_ratio": 0.32672730359164154,
+    "n_iterations": 7,
+    "history": [
+      6.033507347106934,
+      3.6232757568359375,
+      3.597641944885254,
+      3.5960805416107178,
+      3.5942776203155518,
+      3.5940003395080566,
+      3.5940003395080566
+    ],
+    "seed": 0
+  },
+  {
+    "graph": "G9",
+    "init_strategy": "trotter",
+    "n_layers": 1,
+    "final_energy": 3.5940003395080566,
+    "exact_maxcut": 11,
+    "approximation_ratio": 0.32672730359164154,
+    "n_iterations": 7,
+    "history": [
+      6.033507347106934,
+      3.6232757568359375,
+      3.597641944885254,
+      3.5960805416107178,
+      3.5942776203155518,
+      3.5940003395080566,
+      3.5940003395080566
+    ],
+    "seed": 1
+  },
+  {
+    "graph": "G9",
+    "init_strategy": "trotter",
+    "n_layers": 1,
+    "final_energy": 3.5940003395080566,
+    "exact_maxcut": 11,
+    "approximation_ratio": 0.32672730359164154,
+    "n_iterations": 7,
+    "history": [
+      6.033507347106934,
+      3.6232757568359375,
+      3.597641944885254,
+      3.5960805416107178,
+      3.5942776203155518,
+      3.5940003395080566,
+      3.5940003395080566
+    ],
+    "seed": 2
+  }
+]

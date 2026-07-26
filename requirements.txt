@@ -1,0 +1,8 @@
+numpy>=1.24
+scipy>=1.10
+networkx>=3.0
+matplotlib>=3.7
+seaborn>=0.12
+jax>=0.4
+jaxlib>=0.4
+tensorcircuit>=0.5

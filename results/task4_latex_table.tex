@@ -1,0 +1,14 @@
+\begin{table}[htbp]
+  \centering
+  \caption{QAOA $p=1$ 初始化策略对比：近似比 $\pm$ 标准差}
+  \label{tab:init_comparison}
+  \begin{tabular}{lcccc}
+    \toprule
+    & \textbf{Zero} & \textbf{Random} & \textbf{Linear Ramp} & \textbf{Trotterized} \\
+    \midrule
+    C4 & $0.500 \pm 0.000$ & $0.250 \pm 0.000$ & $0.250 \pm 0.000$ & $0.250 \pm 0.000$ \\
+    G6 & $0.500 \pm 0.000$ & $0.331 \pm 0.065$ & $0.285 \pm 0.000$ & $0.285 \pm 0.000$ \\
+    G9 & $0.545 \pm 0.000$ & $0.341 \pm 0.020$ & $0.327 \pm 0.000$ & $0.327 \pm 0.000$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}

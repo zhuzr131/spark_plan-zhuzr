@@ -1,0 +1,527 @@
+[
+  {
+    "graph": "C4",
+    "n_nodes": 4,
+    "n_edges": 4,
+    "n_layers": 1,
+    "init_strategy": "zero",
+    "optimizer": "adam",
+    "n_shots": null,
+    "initial_params": [
+      0.0,
+      0.0
+    ],
+    "optimized_params": [
+      0.0,
+      0.0
+    ],
+    "final_energy": 2.0,
+    "exact_maxcut": 4,
+    "approximation_ratio": 0.5,
+    "n_iterations": 2,
+    "elapsed_time": 0.07017302513122559,
+    "history": [
+      2.0,
+      2.0
+    ],
+    "seed": 42
+  },
+  {
+    "graph": "C4",
+    "n_nodes": 4,
+    "n_edges": 4,
+    "n_layers": 2,
+    "init_strategy": "zero",
+    "optimizer": "adam",
+    "n_shots": null,
+    "initial_params": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "optimized_params": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "final_energy": 2.0,
+    "exact_maxcut": 4,
+    "approximation_ratio": 0.5,
+    "n_iterations": 2,
+    "elapsed_time": 0.26646900177001953,
+    "history": [
+      2.0,
+      2.0
+    ],
+    "seed": 42
+  },
+  {
+    "graph": "C4",
+    "n_nodes": 4,
+    "n_edges": 4,
+    "n_layers": 3,
+    "init_strategy": "zero",
+    "optimizer": "adam",
+    "n_shots": null,
+    "initial_params": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "optimized_params": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "final_energy": 2.0,
+    "exact_maxcut": 4,
+    "approximation_ratio": 0.5,
+    "n_iterations": 2,
+    "elapsed_time": 0.22387099266052246,
+    "history": [
+      2.0,
+      2.0
+    ],
+    "seed": 42
+  },
+  {
+    "graph": "C4",
+    "n_nodes": 4,
+    "n_edges": 4,
+    "n_layers": 4,
+    "init_strategy": "zero",
+    "optimizer": "adam",
+    "n_shots": null,
+    "initial_params": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "optimized_params": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "final_energy": 2.0,
+    "exact_maxcut": 4,
+    "approximation_ratio": 0.5,
+    "n_iterations": 2,
+    "elapsed_time": 0.28389883041381836,
+    "history": [
+      2.0,
+      2.0
+    ],
+    "seed": 42
+  },
+  {
+    "graph": "C4",
+    "n_nodes": 4,
+    "n_edges": 4,
+    "n_layers": 5,
+    "init_strategy": "zero",
+    "optimizer": "adam",
+    "n_shots": null,
+    "initial_params": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "optimized_params": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "final_energy": 2.0,
+    "exact_maxcut": 4,
+    "approximation_ratio": 0.5,
+    "n_iterations": 2,
+    "elapsed_time": 0.35698819160461426,
+    "history": [
+      2.0,
+      2.0
+    ],
+    "seed": 42
+  },
+  {
+    "graph": "G6",
+    "n_nodes": 6,
+    "n_edges": 7,
+    "n_layers": 1,
+    "init_strategy": "zero",
+    "optimizer": "adam",
+    "n_shots": null,
+    "initial_params": [
+      0.0,
+      0.0
+    ],
+    "optimized_params": [
+      0.0,
+      0.0
+    ],
+    "final_energy": 3.5,
+    "exact_maxcut": 7,
+    "approximation_ratio": 0.5,
+    "n_iterations": 2,
+    "elapsed_time": 0.11056303977966309,
+    "history": [
+      3.5,
+      3.5
+    ],
+    "seed": 42
+  },
+  {
+    "graph": "G6",
+    "n_nodes": 6,
+    "n_edges": 7,
+    "n_layers": 2,
+    "init_strategy": "zero",
+    "optimizer": "adam",
+    "n_shots": null,
+    "initial_params": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "optimized_params": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "final_energy": 3.5,
+    "exact_maxcut": 7,
+    "approximation_ratio": 0.5,
+    "n_iterations": 2,
+    "elapsed_time": 0.4787721633911133,
+    "history": [
+      3.5,
+      3.5
+    ],
+    "seed": 42
+  },
+  {
+    "graph": "G6",
+    "n_nodes": 6,
+    "n_edges": 7,
+    "n_layers": 3,
+    "init_strategy": "zero",
+    "optimizer": "adam",
+    "n_shots": null,
+    "initial_params": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "optimized_params": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "final_energy": 3.5,
+    "exact_maxcut": 7,
+    "approximation_ratio": 0.5,
+    "n_iterations": 2,
+    "elapsed_time": 0.4967160224914551,
+    "history": [
+      3.5,
+      3.5
+    ],
+    "seed": 42
+  },
+  {
+    "graph": "G6",
+    "n_nodes": 6,
+    "n_edges": 7,
+    "n_layers": 4,
+    "init_strategy": "zero",
+    "optimizer": "adam",
+    "n_shots": null,
+    "initial_params": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "optimized_params": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "final_energy": 3.5,
+    "exact_maxcut": 7,
+    "approximation_ratio": 0.5,
+    "n_iterations": 2,
+    "elapsed_time": 0.35457897186279297,
+    "history": [
+      3.5,
+      3.5
+    ],
+    "seed": 42
+  },
+  {
+    "graph": "G6",
+    "n_nodes": 6,
+    "n_edges": 7,
+    "n_layers": 5,
+    "init_strategy": "zero",
+    "optimizer": "adam",
+    "n_shots": null,
+    "initial_params": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "optimized_params": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "final_energy": 3.5,
+    "exact_maxcut": 7,
+    "approximation_ratio": 0.5,
+    "n_iterations": 2,
+    "elapsed_time": 0.3707239627838135,
+    "history": [
+      3.5,
+      3.5
+    ],
+    "seed": 42
+  },
+  {
+    "graph": "G9",
+    "n_nodes": 9,
+    "n_edges": 12,
+    "n_layers": 1,
+    "init_strategy": "zero",
+    "optimizer": "adam",
+    "n_shots": null,
+    "initial_params": [
+      0.0,
+      0.0
+    ],
+    "optimized_params": [
+      0.0,
+      0.0
+    ],
+    "final_energy": 6.0,
+    "exact_maxcut": 11,
+    "approximation_ratio": 0.5454545454545454,
+    "n_iterations": 2,
+    "elapsed_time": 0.18084096908569336,
+    "history": [
+      6.0,
+      6.0
+    ],
+    "seed": 42
+  },
+  {
+    "graph": "G9",
+    "n_nodes": 9,
+    "n_edges": 12,
+    "n_layers": 2,
+    "init_strategy": "zero",
+    "optimizer": "adam",
+    "n_shots": null,
+    "initial_params": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "optimized_params": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "final_energy": 6.0,
+    "exact_maxcut": 11,
+    "approximation_ratio": 0.5454545454545454,
+    "n_iterations": 2,
+    "elapsed_time": 1.3816981315612793,
+    "history": [
+      6.0,
+      6.0
+    ],
+    "seed": 42
+  },
+  {
+    "graph": "G9",
+    "n_nodes": 9,
+    "n_edges": 12,
+    "n_layers": 3,
+    "init_strategy": "zero",
+    "optimizer": "adam",
+    "n_shots": null,
+    "initial_params": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "optimized_params": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "final_energy": 6.0,
+    "exact_maxcut": 11,
+    "approximation_ratio": 0.5454545454545454,
+    "n_iterations": 2,
+    "elapsed_time": 1.8489837646484375,
+    "history": [
+      6.0,
+      6.0
+    ],
+    "seed": 42
+  },
+  {
+    "graph": "G9",
+    "n_nodes": 9,
+    "n_edges": 12,
+    "n_layers": 4,
+    "init_strategy": "zero",
+    "optimizer": "adam",
+    "n_shots": null,
+    "initial_params": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "optimized_params": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "final_energy": 6.0,
+    "exact_maxcut": 11,
+    "approximation_ratio": 0.5454545454545454,
+    "n_iterations": 2,
+    "elapsed_time": 2.217352867126465,
+    "history": [
+      6.0,
+      6.0
+    ],
+    "seed": 42
+  },
+  {
+    "graph": "G9",
+    "n_nodes": 9,
+    "n_edges": 12,
+    "n_layers": 5,
+    "init_strategy": "zero",
+    "optimizer": "adam",
+    "n_shots": null,
+    "initial_params": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "optimized_params": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "final_energy": 6.0,
+    "exact_maxcut": 11,
+    "approximation_ratio": 0.5454545454545454,
+    "n_iterations": 2,
+    "elapsed_time": 1.6473619937896729,
+    "history": [
+      6.0,
+      6.0
+    ],
+    "seed": 42
+  }
+]
