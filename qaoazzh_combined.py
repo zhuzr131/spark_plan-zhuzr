@@ -1,32 +1,3 @@
-"""
-QAOA_ZZH_Combined —— 单文件整合版
-==================================
-本文件把两部分整合为一个文件（尊重双方原始实现，均完整保留）。
-按处理逻辑分层：**上层是主体框架（周子晗的 RG），下层是被调用的优化引擎（朋友的）**。
-
-  【上半部分 · 主体】周子晗的 QAOA_ZZH（RG 多尺度粗粒化框架）
-     - 纯 numpy statevector（不依赖 tensorcircuit，自兼容）
-     - RG 与优化器解耦；通过 adapter 调用下方朋友的 adam_refine
-     - 整合入口: python qaoazzh_combined.py --mode combined
-
-  【下半部分 · 优化引擎】朋友的 QAOA 优化器（腾讯 Problem 3 题 9abc）
-     - 四种 Ansatz 对比 + Sobol→Adam→L-BFGS-B 混合优化
-     - TensorCircuit + JAX 精确 statevector，原码完整保留、未改动
-     - 独立入口: python qaoazzh_combined.py --mode friend
-
-处理逻辑（一次 RG 求解）：
-  QAOA_ZZH.solve_rg()  [上层]
-    → optimizer(objective, x0, bounds, maxiter)  [adapter 桥接]
-      → adam_refine(...)  [下层, 朋友的实现]  → scipy L-BFGS-B
-
-依赖: numpy, scipy, jax(0.7.0), jaxlib(0.7.0), tensorcircuit(0.12.0),
-      networkx, pandas, matplotlib —— 见配套 requirements.txt。
-      (周子晗的 QAOA_ZZH 只需 numpy+scipy；jax/tc 是下方朋友代码所需。)
-
-环境: Python 3.12 + jax 0.7.0（唯一能与 tensorcircuit 0.12 + numpy<2 共存的组合）。
-
-作者: 周子晗(RG 框架 + 整合) + [朋友](优化器)
-"""
 from __future__ import annotations
 
 import argparse
@@ -149,9 +120,7 @@ def _run_optimizer(objective, x0, bounds, optimizer, maxiter):
 
     optimizer 可以是:
       - str: scipy.minimize 的 method 名 ("COBYLA"/"L-BFGS-B"/...)
-             朋友的优化器如果实现了 scipy 接口, 也可传自定义 callable
       - callable: 签名 (objective, x0, bounds, maxiter) -> (x, fun, nfev)
-                  给朋友的优化器留的口子, 但不强制注册框架
     """
     if callable(optimizer):
         return optimizer(objective, x0, bounds, maxiter)
@@ -252,9 +221,6 @@ class QAOA_ZZH:
 def _finite_diff_vg(objective, eps=1e-5):
     """把纯 numpy objective 包装成朋友 adam_refine 需要的 value_and_gradient。
 
-    朋友的 adam_refine 内部会对参数做 `jnp.asarray(theta)` 再传入 vg，
-    并对返回的 gradient 做 `np.asarray(...)`。我们的 vg 接受类数组、
-    返回 (float, np.ndarray)，与之兼容（jnp 数组可被 np.asarray 转回）。
     """
     def vg(params):
         x = np.asarray(params, dtype=float)
@@ -271,10 +237,6 @@ def make_friend_optimizer(global_starts=6, selected=2,
                           adam_steps=35, adam_lr=0.06, lbfgs_maxiter=50,
                           seed=0):
     """工厂：返回符合 QAOA_ZZH 接口的 optimizer callable。
-
-    整合朋友 hybrid_optimize 的流程（多初值筛选 → 朋友的 adam_refine → L-BFGS-B），
-    但把"初值生成"简化为通用随机采样（朋友原版的 Sobol/结构化初值绑定其 ansatz，
-    这里对 QAOA_ZZH 的通用 objective 用均匀随机 + x0）。
 
     返回 callable 签名: (objective, x0, bounds, maxiter) -> (x, fun, nfev)
     """
